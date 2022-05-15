@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Button, TextField, Typography } from "@material-ui/core";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import ShareIcon from "@material-ui/icons/Share";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
+import { Box, Button, TextField } from "@material-ui/core";
 import { useStyles } from "./styles";
 
 const InputComponent = (props) => {
   const classes = useStyles();
+  const [text, setText] = useState("");
 
   /**
    * Function to call the function that will dispatch
@@ -15,7 +12,7 @@ const InputComponent = (props) => {
    */
   const handleUpdateData = () => {
     const data = {
-      prompt: "Write a poem about a dog wearing skis",
+      prompt: text,
       temperature: 0.5,
       max_tokens: 64,
       top_p: 1.0,
@@ -27,20 +24,21 @@ const InputComponent = (props) => {
 
   return (
     <div className={classes.root}>
-      <Typography variant="h3" gutterBottom component="div">
-        Fun With AI
-      </Typography>
       <TextField
         id="filled-multiline-static"
-        label="Multiline"
         multiline
-        minRows={4}
-        defaultValue="Default Value"
+        minRows={15}
+        placeholder="Enter a prompt..."
         variant="filled"
+        className={classes.input}
+        value={text}
+        onChange={(e) => setText(e.target.value)}
       />
-      <Button variant="contained" onClick={handleUpdateData}>
-        Submit
-      </Button>
+      <div className={classes.buttonContainer}>
+        <Button variant="contained" onClick={handleUpdateData}>
+          Submit
+        </Button>
+      </div>
     </div>
   );
 };

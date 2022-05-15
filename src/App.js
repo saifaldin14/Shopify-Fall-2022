@@ -28,7 +28,7 @@ const App = (props) => {
 
   return (
     <div className="App">
-      <h1>Space-tagram!</h1>
+      <h1>Fun with AI!</h1>
       {!props.isLoading ? (
         <>
           <InputComponent onPostGPTData={onPostGPTData} />
