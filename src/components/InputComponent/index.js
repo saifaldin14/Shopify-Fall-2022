@@ -18,7 +18,7 @@ const InputComponent = () => {
         id="filled-multiline-static"
         label="Multiline"
         multiline
-        rows={4}
+        minRows={4}
         defaultValue="Default Value"
         variant="filled"
       />
