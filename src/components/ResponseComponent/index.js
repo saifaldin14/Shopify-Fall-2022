@@ -8,7 +8,6 @@ const FeedComponent = (props) => {
   const [cardData, setCardData] = useState([]);
 
   useEffect(() => {
-    console.log("Not yet stored: " + JSON.stringify(props.gptData));
     if (
       props.gptData !== undefined &&
       props.gptData !== null &&
@@ -33,8 +32,6 @@ const FeedComponent = (props) => {
       ]);
     }
   }, [data]);
-
-  console.log("My data: " + JSON.stringify(data));
 
   return (
     <div className={classes.container}>
