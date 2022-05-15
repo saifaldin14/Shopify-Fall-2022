@@ -1,8 +1,7 @@
 import "./App.css";
 import { postGPTAction } from "./actions/postGPTData";
 import { connect } from "react-redux";
-import FeedComponent from "./components/FeedComponent";
-import DatePickerComponent from "./components/DatePickerComponent";
+import InputComponent from "./components/InputComponent";
 import Lottie from "react-lottie";
 import { default as animationData } from "./assets/lotties/loading.json";
 
@@ -32,8 +31,7 @@ const App = (props) => {
       <h1>Space-tagram!</h1>
       {!props.isLoading ? (
         <>
-          <DatePickerComponent onGetNasaData={onGetNasaData} />
-          <FeedComponent nasaData={props.nasaData.data} />
+          <InputComponent />
         </>
       ) : (
         <Lottie options={defaultOptions} height={400} width={400} />
