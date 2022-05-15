@@ -1,11 +1,21 @@
 import React, { useEffect, useState } from "react";
+import { Button } from "@material-ui/core";
 import CardComponent from "../CardComponent";
 import { useStyles } from "./styles";
 
 const ResponseComponent = (props) => {
   const classes = useStyles();
   const [data, setData] = useState({ choices: [{ text: "" }] });
-  const [cardData, setCardData] = useState([]);
+  const [cardData, setCardData] = useState(() => {
+    if (
+      localStorage.getItem("vals") !== undefined &&
+      localStorage.getItem("vals") !== null
+    ) {
+      return JSON.parse(localStorage.getItem("vals"));
+    } else {
+      return [];
+    }
+  });
 
   useEffect(() => {
     if (
@@ -33,6 +43,11 @@ const ResponseComponent = (props) => {
     }
   }, [data]);
 
+  const save = () => {
+    console.log("Saved: " + JSON.stringify(cardData));
+    localStorage.setItem("vals", JSON.stringify(cardData));
+  };
+
   return (
     <div className={classes.container}>
       {
@@ -50,6 +65,9 @@ const ResponseComponent = (props) => {
             })
         // <CardComponent prompt={props.prompt} response={data.choices[0].text} />
       }
+      <Button variant="contained" onClick={save}>
+        Save
+      </Button>
     </div>
   );
 };

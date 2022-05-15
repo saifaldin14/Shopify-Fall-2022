@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Box, Button, TextField } from "@material-ui/core";
+import { Button, TextField } from "@material-ui/core";
 import { useStyles } from "./styles";
 
 const InputComponent = (props) => {
