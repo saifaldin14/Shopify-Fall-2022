@@ -6,8 +6,24 @@ import ShareIcon from "@material-ui/icons/Share";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import { useStyles } from "./styles";
 
-const InputComponent = () => {
+const InputComponent = (props) => {
   const classes = useStyles();
+
+  /**
+   * Function to call the function that will dispatch
+   * the action to fetch data between the startDate and endDate
+   */
+  const handleUpdateData = () => {
+    const data = {
+      prompt: "Write a poem about a dog wearing skis",
+      temperature: 0.5,
+      max_tokens: 64,
+      top_p: 1.0,
+      frequency_penalty: 0.0,
+      presence_penalty: 0.0,
+    };
+    props.onPostGPTData(data);
+  };
 
   return (
     <div className={classes.root}>
@@ -22,7 +38,9 @@ const InputComponent = () => {
         defaultValue="Default Value"
         variant="filled"
       />
-      <Button variant="contained">Submit</Button>
+      <Button variant="contained" onClick={handleUpdateData}>
+        Submit
+      </Button>
     </div>
   );
 };

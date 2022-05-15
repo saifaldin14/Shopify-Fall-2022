@@ -31,7 +31,7 @@ const App = (props) => {
       <h1>Space-tagram!</h1>
       {!props.isLoading ? (
         <>
-          <InputComponent />
+          <InputComponent onPostGPTData={onPostGPTData} />
         </>
       ) : (
         <Lottie options={defaultOptions} height={400} width={400} />
