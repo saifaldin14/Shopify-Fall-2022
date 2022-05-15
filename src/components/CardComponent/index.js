@@ -2,7 +2,7 @@ import React from "react";
 import { Card, Typography } from "@material-ui/core";
 import { useStyles } from "./styles";
 
-const CardComponent = ({ prompt, response }) => {
+const CardComponent = ({ id, prompt, response }) => {
   const classes = useStyles();
 
   return (
