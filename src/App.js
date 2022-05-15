@@ -2,6 +2,7 @@ import "./App.css";
 import { postGPTAction } from "./actions/postGPTData";
 import { connect } from "react-redux";
 import InputComponent from "./components/InputComponent";
+import ResponseComponent from "./components/ResponseComponent";
 import Lottie from "react-lottie";
 import { default as animationData } from "./assets/lotties/loading.json";
 
@@ -32,6 +33,7 @@ const App = (props) => {
       {!props.isLoading ? (
         <>
           <InputComponent onPostGPTData={onPostGPTData} />
+          <ResponseComponent gptData={props.gptData.data} />
         </>
       ) : (
         <Lottie options={defaultOptions} height={400} width={400} />
@@ -44,6 +46,7 @@ function mapStateToProps(state) {
   const gptData = state.postGPTData;
   const isLoading = state.postGPTData.isLoading;
 
+  // console.log(JSON.stringify(gptData));
   return {
     gptData,
     isLoading,
