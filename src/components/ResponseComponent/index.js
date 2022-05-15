@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import CardComponent from "../CardComponent";
 import { useStyles } from "./styles";
 
-const FeedComponent = (props) => {
+const ResponseComponent = (props) => {
   const classes = useStyles();
   const [data, setData] = useState({ choices: [{ text: "" }] });
   const [cardData, setCardData] = useState([]);
@@ -54,4 +54,4 @@ const FeedComponent = (props) => {
   );
 };
 
-export default FeedComponent;
+export default ResponseComponent;
