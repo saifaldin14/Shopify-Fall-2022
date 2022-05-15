@@ -5,7 +5,7 @@ const gpt = {
    * @returns An object containing all images and data for each day in the specified range
    */
   async getGPT(data) {
-    return await fetch(
+    const res = await fetch(
       "https://api.openai.com/v1/engines/text-curie-001/completions",
       {
         method: "POST",
@@ -16,6 +16,9 @@ const gpt = {
         body: JSON.stringify(data),
       }
     );
+
+    const content = await res.json();
+    return content;
   },
 };
 
