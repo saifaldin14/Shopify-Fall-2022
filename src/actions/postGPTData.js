@@ -18,14 +18,15 @@ const postGPTFailure = () => {
   return { type: GPT_POST_FAILURE };
 };
 
-export const postGPTAction = () => (dispatch) => {
+export const postGPTAction = (data) => (dispatch) => {
   //Dispatch the request action (isLoading will be true)
   dispatch(postGPTRequest());
   //Fetch the data
   gpt
-    .getGPT()
+    .getGPT(data)
     .then((res) => {
       //Once the data is successfully retrieved execute the success action
+      console.log("Success!!!!");
       dispatch(postGPTSuccess(res));
     })
     .catch((e) => {
