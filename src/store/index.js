@@ -1,4 +1,4 @@
-import { createStore, applyMiddleware } from "redux";
+import { configureStore, applyMiddleware } from "redux";
 import createSagaMiddleware from "redux-saga";
 import thunk from "redux-thunk";
 import logger from "redux-logger";
@@ -8,7 +8,7 @@ import rootReducer from "../reducers/index";
 
 // const sagaMiddleware = createSagaMiddleware();
 
-const store = createStore(
+const store = configureStore(
   rootReducer
   // applyMiddleware(thunk, sagaMiddleware, logger)
 );
