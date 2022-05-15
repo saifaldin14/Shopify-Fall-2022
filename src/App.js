@@ -40,7 +40,10 @@ const App = (props) => {
             onPostGPTData={onPostGPTData}
             onPostGPTPrompt={onPostGPTPrompt}
           />
-          <ResponseComponent gptData={props.gptData.data} />
+          <ResponseComponent
+            gptData={props.gptData.data}
+            prompt={props.prompt}
+          />
         </>
       ) : (
         <Lottie options={defaultOptions} height={400} width={400} />
@@ -54,10 +57,10 @@ function mapStateToProps(state) {
   const prompt = state.postGPTData.prompt;
   const isLoading = state.postGPTData.isLoading;
 
-  console.log(prompt);
   // console.log(JSON.stringify(gptData));
   return {
     gptData,
+    prompt,
     isLoading,
   };
 }
