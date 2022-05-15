@@ -1,5 +1,5 @@
 import "./App.css";
-import { postGPTAction } from "./actions/postGPTData";
+import { postGPTAction, postGPTPromptAction } from "./actions/postGPTData";
 import { connect } from "react-redux";
 import InputComponent from "./components/InputComponent";
 import ResponseComponent from "./components/ResponseComponent";
@@ -14,6 +14,10 @@ const App = (props) => {
    */
   const onPostGPTData = (data) => {
     props.postGPTData(data);
+  };
+
+  const onPostGPTPrompt = (prompt) => {
+    props.postGPTPrompt(prompt);
   };
 
   //The default configurations for the loading animation
@@ -32,7 +36,10 @@ const App = (props) => {
       <h1>Fun with AI!</h1>
       {!props.isLoading ? (
         <>
-          <InputComponent onPostGPTData={onPostGPTData} />
+          <InputComponent
+            onPostGPTData={onPostGPTData}
+            onPostGPTPrompt={onPostGPTPrompt}
+          />
           <ResponseComponent gptData={props.gptData.data} />
         </>
       ) : (
@@ -44,8 +51,10 @@ const App = (props) => {
 
 function mapStateToProps(state) {
   const gptData = state.postGPTData;
+  const prompt = state.postGPTData.prompt;
   const isLoading = state.postGPTData.isLoading;
 
+  console.log(prompt);
   // console.log(JSON.stringify(gptData));
   return {
     gptData,
@@ -56,6 +65,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     postGPTData: (data) => dispatch(postGPTAction(data)),
+    postGPTPrompt: (prompt) => dispatch(postGPTPromptAction(prompt)),
   };
 }
 

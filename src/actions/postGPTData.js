@@ -3,6 +3,7 @@ import gpt from "../lib/gpt";
 //Types
 export const GPT_POST_REQUEST = "GPT_POST_REQUEST";
 export const GPT_POST_SUCCESS = "GPT_POST_SUCCESS";
+export const GPT_POST_PROMPT_SUCCESS = "GPT_POST_PROMPT_SUCCESS";
 export const GPT_POST_FAILURE = "GPT_POST_FAILURE";
 
 //Actions
@@ -12,6 +13,10 @@ const postGPTRequest = () => {
 
 const postGPTSuccess = (data) => {
   return { type: GPT_POST_SUCCESS, payload: data };
+};
+
+const postGPTPromptSuccess = (prompt) => {
+  return { type: GPT_POST_PROMPT_SUCCESS, payload: prompt };
 };
 
 const postGPTFailure = () => {
@@ -35,4 +40,11 @@ export const postGPTAction = (data) => (dispatch) => {
       dispatch(postGPTFailure());
     });
   //In both success or failure isLoading will be false
+};
+
+export const postGPTPromptAction = (prompt) => (dispatch) => {
+  dispatch(postGPTRequest());
+
+  if (prompt !== "") dispatch(postGPTPromptSuccess(prompt));
+  else dispatch(postGPTFailure());
 };

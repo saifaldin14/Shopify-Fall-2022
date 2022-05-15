@@ -20,6 +20,7 @@ const InputComponent = (props) => {
       presence_penalty: 0.0,
     };
     props.onPostGPTData(data);
+    props.onPostGPTPrompt(text);
   };
 
   return (
