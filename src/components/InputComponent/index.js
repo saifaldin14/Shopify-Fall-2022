@@ -36,7 +36,11 @@ const InputComponent = (props) => {
         onChange={(e) => setText(e.target.value)}
       />
       <div className={classes.buttonContainer}>
-        <Button variant="contained" onClick={handleUpdateData}>
+        <Button
+          className={classes.button}
+          variant="contained"
+          onClick={handleUpdateData}
+        >
           Submit
         </Button>
       </div>
