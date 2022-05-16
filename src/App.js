@@ -33,7 +33,7 @@ const App = (props) => {
 
   return (
     <div className="App">
-      <h1>Fun with AI!</h1>
+      <h1>Robo Talk!</h1>
       {!props.isLoading ? (
         <>
           <InputComponent
