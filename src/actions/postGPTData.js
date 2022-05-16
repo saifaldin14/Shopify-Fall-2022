@@ -45,6 +45,7 @@ export const postGPTAction = (data, engine) => (dispatch) => {
 export const postGPTPromptAction = (prompt) => (dispatch) => {
   dispatch(postGPTRequest());
 
+  // If the prompt is not empty then we can dispatch the success actions
   if (prompt !== "") dispatch(postGPTPromptSuccess(prompt));
   else dispatch(postGPTFailure());
 };

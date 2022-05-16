@@ -9,13 +9,19 @@ import { default as animationData } from "./assets/lotties/loading.json";
 const App = (props) => {
   /**
    * Function to call the prop that will dispatch an action to fetch data from the API
-   * to retrieve data between startDate and endDate
+   * to retrieve responses using the passed data object and engine
    * @param {object} data
+   * @param {string} engine
    */
   const onPostGPTData = (data, engine) => {
     props.postGPTData(data, engine);
   };
 
+  /**
+   * Function to store the value of the prompt from the input component
+   * so that it can be used in the response component
+   * @param {string} prompt
+   */
   const onPostGPTPrompt = (prompt) => {
     props.postGPTPrompt(prompt);
   };

@@ -17,7 +17,7 @@ const InputComponent = (props) => {
 
   /**
    * Function to call the function that will dispatch
-   * the action to fetch data between the startDate and endDate
+   * the action to fetch the responses using the data and engine values
    */
   const handleUpdateData = () => {
     const data = {
@@ -32,6 +32,10 @@ const InputComponent = (props) => {
     props.onPostGPTPrompt(text);
   };
 
+  /**
+   * Function to handle the changed state of the engine value
+   * @param {*} event
+   */
   const handleEngineChange = (event) => {
     setEngine(event.target.value);
   };

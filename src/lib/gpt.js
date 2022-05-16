@@ -1,8 +1,7 @@
 const gpt = {
   /**
-   * Function to fetch the images from the NASA APOD API
-   * Default behaviour: get all images from the first day of the current month to the current day
-   * @returns An object containing all images and data for each day in the specified range
+   * Function to fetch the responses from the OpenAI GPT3 API
+   * @returns An object containing the response corresponding to the passed prompt
    */
   async getGPT(data, engine = "text-curie-001") {
     const res = await fetch(
