@@ -12,8 +12,8 @@ const App = (props) => {
    * to retrieve data between startDate and endDate
    * @param {object} data
    */
-  const onPostGPTData = (data) => {
-    props.postGPTData(data);
+  const onPostGPTData = (data, engine) => {
+    props.postGPTData(data, engine);
   };
 
   const onPostGPTPrompt = (prompt) => {
@@ -67,7 +67,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    postGPTData: (data) => dispatch(postGPTAction(data)),
+    postGPTData: (data, engine) => dispatch(postGPTAction(data, engine)),
     postGPTPrompt: (prompt) => dispatch(postGPTPromptAction(prompt)),
   };
 }

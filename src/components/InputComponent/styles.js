@@ -15,7 +15,7 @@ export const useStyles = makeStyles((theme) => ({
   buttonContainer: {
     display: "flex",
     width: "50%",
-    justifyContent: "flex-end",
+    justifyContent: "space-between",
     alignItems: "flex-end",
   },
   button: {

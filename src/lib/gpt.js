@@ -4,9 +4,9 @@ const gpt = {
    * Default behaviour: get all images from the first day of the current month to the current day
    * @returns An object containing all images and data for each day in the specified range
    */
-  async getGPT(data) {
+  async getGPT(data, engine = "text-curie-001") {
     const res = await fetch(
-      "https://api.openai.com/v1/engines/text-curie-001/completions",
+      `https://api.openai.com/v1/engines/${engine}/completions`,
       {
         method: "POST",
         headers: {
