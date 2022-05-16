@@ -1,7 +1,7 @@
 const gpt = {
   /**
    * Function to fetch the responses from the OpenAI GPT3 API
-   * @returns An object containing the response corresponding to the passed prompt
+   * @returns An  object containing the response corresponding to the passed prompt
    */
   async getGPT(data, engine = "text-curie-001") {
     const res = await fetch(
