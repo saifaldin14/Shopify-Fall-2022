@@ -65,9 +65,11 @@ const ResponseComponent = (props) => {
             })
         // <CardComponent prompt={props.prompt} response={data.choices[0].text} />
       }
-      <Button variant="contained" onClick={save}>
-        Save
-      </Button>
+      <div className={classes.buttonContainer}>
+        <Button variant="contained" onClick={save}>
+          Save
+        </Button>
+      </div>
     </div>
   );
 };

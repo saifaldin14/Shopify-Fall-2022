@@ -7,4 +7,11 @@ export const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
   },
+  buttonContainer: {
+    display: "flex",
+    width: "50%",
+    justifyContent: "flex-end",
+    alignItems: "flex-end",
+    marginBottom: "2rem",
+  },
 }));
