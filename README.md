@@ -1,6 +1,6 @@
 # Project URL
 
-https://shopifyproject.herokuapp.com
+https://robotalkproject.herokuapp.com/
 
 ## Project Overview
 
